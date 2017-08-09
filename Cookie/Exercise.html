@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+同一套网站共享一套Cookie，也就是说同一个域名，是同一套Cookie
+Cookie是有一定大小的，并且是有时间限制的也就是过期时间，如果没有定义过期时间，浏览器关闭就没有了
+本地测试时，最好使用火狐浏览器，因为只有火狐浏览器可以正常的保存下来
+Cookie的本质是document上的一个属性
+
+如何往Cookie里面放东西？
+只需要给document.cookie赋值就可以了
+但是这个值是有要求的，名字=值的形式
+
+如何设置Cookie的过期时间？
+var oDate = new Date();
+oDate.setDate(oDate.getDate()+14);
+过期系统会把它干掉
+
+火狐查看，右键页面信息、安全、查看Cookie或移除Cookie
+
+如何读取Cookie?
+字符串分割
+
+如何删除Cookie?
+因为Cookie的大小是有一定的限制的10K左右，所以不能一直增加，有及时删除
+
+
+2.7.4  使用Cookies
+
+Cookie是可以在客户端存储数据另一种方案，这里不过多介绍。
+
+优点：
+
+不需要服务器资源；数据保存在客户端，在用户请求时发送到服务器上。
+使用简单。Cookie包含简单的键值对，主要保存轻量级的文本数据。
+支持过期策略；可以指定当会话结束时过期，也可指定一个时间策略。
+缺点：
+
+数据量的限制；
+用户可能设置为拒绝Cookie；
+安全问题；用户可能更改机器上的cookie信息，造成基于cookie的系统运行失败；
+可能过期或被用户删除，造成一定程度的不可用。
+
+
+
+
+
+-->
+<script>
+    var oDate= new Date();
+    oDate.setDate(oDate.getDate()+14);//多少天以后
+    document.cookie='user=blue;expires='+oDate;
+    //document.cookie='password=123456';//在JS中重复赋值是添加，但是在Cookie里面是添加的意思，永远不会被覆盖掉,当然重名会覆盖
+    alert(document.cookie);
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
